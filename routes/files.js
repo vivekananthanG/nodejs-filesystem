@@ -12,21 +12,21 @@ router.get("/", (req, res) => {
 });
 
 router.put("/add", (req, res) => {
-  let d = new Date();
-  let filename =
-    d.getDate() +
+  let date = new Date();
+  let fileName =
+    date.getDate() +
     "-" +
-    (d.getMonth() + 1) +
+    (date.getMonth() + 1) +
     "-" +
-    d.getFullYear() +
+    date.getFullYear() +
     "-" +
-    d.getHours() +
+    date.getHours() +
     "-" +
-    d.getMinutes() +
+    date.getMinutes() +
     "-" +
-    d.getSeconds();
+    date.getSeconds();
 
-  fs.writeFile(`./folder/${filename}.txt`, d.toString(), (err) => {
+  fs.writeFile(`./folder/${fileName}.txt`, date.toString(), (err) => {
     res.send("File Created!!");
   });
 });
